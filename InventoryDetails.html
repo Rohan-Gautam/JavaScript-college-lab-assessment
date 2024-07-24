@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #2196F3;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #2196F3;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Inventory Details</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Item Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody id="inventory-details">
+    </tbody>
+</table>
+
+<script>
+    // Using array constructor
+    let inventory = new Array(
+        { itemName: "Laptop", quantity: 10, price: 800 },
+        { itemName: "Mouse", quantity: 50, price: 20 },
+        { itemName: "Keyboard", quantity: 30, price: 50 }
+    );
+
+    function displayInventory() {
+        const tableBody = document.getElementById('inventory-details');
+        inventory.forEach(item => {
+            let row = `<tr>
+                <td>${item.itemName}</td>
+                <td>${item.quantity}</td>
+                <td>${item.price}</td>
+            </tr>`;
+            tableBody.innerHTML += row;
+        });
+    }
+
+    displayInventory();
+</script>
+
+</body>
+</html>

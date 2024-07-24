@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Ticket Reservation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Railway Ticket Reservation</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Passenger Name</th>
+            <th>Train Number</th>
+            <th>Seat Number</th>
+        </tr>
+    </thead>
+    <tbody id="railway-reservation">
+    </tbody>
+</table>
+
+<script>
+    // Using array literal notation
+    let reservations = [{ name: "Akshay Kumar", trainNumber: "12345", seatNumber: "12A" },
+                        { name: "Bobby Deol", trainNumber: "67890", seatNumber: "15B" },
+                        { name: "Chacha Chaudhary", trainNumber: "54321", seatNumber: "10C" }];
+   
+    function displayReservations() {
+        const tableBody = document.getElementById('railway-reservation');
+        reservations.forEach(reservation => {
+            let row = `<tr>
+                <td>${reservation.name}</td>
+                <td>${reservation.trainNumber}</td>
+                <td>${reservation.seatNumber}</td>
+            </tr>`;
+            tableBody.innerHTML += row;
+        });
+    }
+
+    displayReservations();
+</script>
+
+</body>
+</html>

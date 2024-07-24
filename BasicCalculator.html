@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Rohan Gautam">
+    <title>Basic Calculator</title>
+    <style>
+        * {
+            background-color: black;
+            color: white;
+        }
+
+        .div1{
+            display:flex;
+            justify-content: center;
+        }
+        .heading{
+            cursor: pointer;
+            color:aqua;
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+<main>
+    <div class="div1">
+        <h1 class="heading" onclick = "calculate()">Click here to perform arithmetic operation on two numbers using alert prompts.</h1>
+    </div>
+</main>
+
+<script>
+    function calculate() {
+        alert("Enter the numbers to calculate their sum, product, etc.");
+
+        var num1 = parseFloat(prompt("Enter first number: "));
+        var num2 = parseFloat(prompt("Enter second number: "));
+
+        var oper = prompt("Enter Operation to perform (+, -, /, *): ");
+        var operation;
+        var result;
+
+        switch (oper) {
+            case "+":
+                result = num1 + num2;
+                operation = "sum";
+                break;
+            case "-":
+                result = num1 - num2;
+                operation = "difference";
+                break;
+            case "/":
+                if (num2 === 0) {
+                    alert("Division by zero is not allowed.");
+                    return;
+                }
+                result = num1 / num2;
+                operation = "quotient";
+                break;
+            case "*":
+                result = num1 * num2;
+                operation = "product";
+                break;
+            default:
+                alert("Invalid Operation. Please choose from (+, -, /, *) only.");
+                return;
+        }
+
+        alert("The " + operation + " of the given two numbers is " + result + ".");
+    }
+</script>
+
+</body>
+</html>

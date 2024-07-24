@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table Generator</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: gray;
+        }
+
+        table {
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid white;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Multiplication Table Generator</h1>
+<input type="number" id="number" placeholder="Enter a number">
+<button onclick="generateMultiplicationTable()">Generate Table</button>
+<div id="table-container"></div>
+
+<script>
+    function generateMultiplicationTable() {
+        const number = document.getElementById('number').value;
+        const tableContainer = document.getElementById('table-container');
+        tableContainer.innerHTML = ''; // Clear previous table
+
+        if (number === '' || number <= 0) {
+            alert("Please enter a positive number.");
+            return;
+        }
+
+        let table = document.createElement('table');
+
+        for (let i = 1; i <= 10; i++) {
+            let row = table.insertRow();
+            let cell1 = row.insertCell(0);
+            let cell2 = row.insertCell(1);
+            let cell3 = row.insertCell(2);
+            cell1.innerHTML = number;
+            cell2.innerHTML = 'x';
+            cell3.innerHTML = i + ' = ' + (number * i);
+        }
+
+        tableContainer.appendChild(table);
+    }
+</script>
+
+</body>
+</html>

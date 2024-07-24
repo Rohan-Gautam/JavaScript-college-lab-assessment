@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #FF5722;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #FF5722;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Hospital Management Details</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Patient Name</th>
+            <th>Doctor Name</th>
+            <th>Room Number</th>
+        </tr>
+    </thead>
+    <tbody id="hospital-management">
+    </tbody>
+</table>
+
+<script>
+    // Using Array.from method
+    let patientsData = [
+        { patientName: "Rakesh", doctorName: "Dr. Smith Kumar Khan", roomNumber: "101" },
+        { patientName: "Anjali", doctorName: "Dr. Brown White", roomNumber: "102" },
+        { patientName: "Foolan Devi", doctorName: "Dr. Johnson's Baby", roomNumber: "103" }
+    ];
+
+    let hospitalManagement = Array.from(patientsData);
+
+    function displayHospitalManagement() {
+        const tableBody = document.getElementById('hospital-management');
+        hospitalManagement.forEach(detail => {
+            let row = `<tr>
+                <td>${detail.patientName}</td>
+                <td>${detail.doctorName}</td>
+                <td>${detail.roomNumber}</td>
+            </tr>`;
+            tableBody.innerHTML += row;
+        });
+    }
+
+    displayHospitalManagement();
+</script>
+
+</body>
+</html>
